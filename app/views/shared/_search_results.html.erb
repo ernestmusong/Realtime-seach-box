@@ -1,0 +1,3 @@
+<% Search.where("query LIKE ?", "% ").group(:query).order('count_id desc').count.each do |query, count| %>
+  <p><%= query %> - <%= count %> searches</p>
+<% end %>
