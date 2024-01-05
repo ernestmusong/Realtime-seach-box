@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="mid-nav">
-    <form class="search-wrapper" onSubmit={handleSubmit}>
+    <form class="search-wrapper" >
       <label class="search-label" htmlFor="year">
         <input
           type="search"
@@ -17,14 +17,13 @@
           id="search"
           class="search-input"
           placeholder="Search products"
-          value=''
-          onChange={handleChange}
         />
       </label>
       <button type="submit" id="search-button">
         <i class="fas fa-search"></i>
       </button>
     </form>
+    <ul id="search-results"></ul>
   </div>
       <script src="index.js"></script>
 </body>
