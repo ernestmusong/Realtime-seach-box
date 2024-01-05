@@ -1,47 +1,50 @@
 class SearchesController < ApplicationController
+  @prefixes = [
+    'what is',
+    'what are',
+    'what does',
+    'what should',
+    'how is',
+    'how are',
+    'how does',
+    'how should',
+    'why is',
+    'why are',
+    'why does',
+    'why should',
+    'when is',
+    'when does',
+    'when are',
+    'when should'
+  ]
   def create
     query = params[:query]
-    complete_query = query if valid_search_query?(query)
+    ip_address = request.remote_ip
+    incomplete_query = unsummarize_query(query)
+    complete_query = query if summarize_query(query)
+    @results = perform_search(incomplete_query)
 
     if complete_query.present?
-      @search = Search.new(query: complete_query)
+      @search = Search.new(query: complete_query, ip_address: ip_address)
       @search.save
-
-      # You can also track the user's IP address here if needed
     end
 
-    render partial: 'search_results'
+    render json: { success: complete_query.present? }
   end
 
   private
 
-  def valid_search_query?(query)
-    return false unless query.start_with?('w', 'W', 'h', 'H')
-
-    words = query.split(' ')
-    return false unless words.length >= 3
-
-    case words[1].downcase
-    when "is"
-      return valid_is_question?(words)
-    when "are"
-      return valid_are_question?(words)
-    end
-
-    false
+  def summarize_query(query)
+    query_start = query.split(" ").first.downcase
+    return query if prefixes.include?(query_start) && query.split(" ").length >= 3
   end
 
-  def valid_is_question?(words)
-    return false unless words[2].casecmp?("the")
-
-    valid_third_word = ["meaning", "use", "reason"]
-    valid_third_word.any? { |word| words[3].casecmp?(word) }
+  def unsummarize_query(query)
+    query_start = query.split(" ").first.downcase
+    return query if prefixes.include?(query_start)
   end
 
-  def valid_are_question?(words)
-    return false unless words[2].casecmp?("the")
-
-    valid_third_word = ["meanings", "uses", "reasons"]
-    valid_third_word.any? { |word| words[3].casecmp?(word) }
+  def perform_search(query)
+    Search.where('LOWER(query) LIKE ?', "%#{query.downcase}%").pluck(:query)
   end
 end

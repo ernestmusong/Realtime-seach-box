@@ -1,3 +1,16 @@
-<% Search.where("query LIKE ?", "% ").group(:query).order('count_id desc').count.each do |query, count| %>
-  <p><%= query %> - <%= count %> searches</p>
+<h1>Search Results</h1>
+
+<% if @search.present? %>
+  <p>Showing results for: <%= @search.query %></p>
+  <% if @search.persisted? %>
+    <!-- Display the search results here -->
+    <ul>
+      <% @results.each do |result| %>
+        <li><%= result %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No results found.</p>
+  <% end %>
 <% end %>
+

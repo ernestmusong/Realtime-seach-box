@@ -86,10 +86,6 @@ end
 #   gem 'webdrivers'
 # end
 
-gem 'devise', '~> 4.9'
-
-gem 'cancancan'
-
 gem 'erb-formatter'
 
 gem 'font-awesome-rails'

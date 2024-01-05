@@ -1,9 +1,8 @@
 class Search < ApplicationRecord
-  belongs_to :author, class_name: 'User'
-  has_many :activities
+  validates :query, presence: true
+  validates :ip_address, presence: true
 
-  has_one_attached :icon # or has_many_attached if you want multiple icons
-
-  validates :name, presence: true
-  validates :icon, presence: true
+  def self.analytics
+    group(:query).order('COUNT(*) DESC').count
+  end
 end

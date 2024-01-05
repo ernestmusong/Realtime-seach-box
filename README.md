@@ -24,7 +24,7 @@
 
 # 📖 [Realtime Search Box] <a name="about-project"></a>
 
-**[Realtime Search Box]** An app  where users search articles, and then to have analytics that display what users were searching for. The app records users input in realtime and ultimately display analytics & trends on what people are searching for the most.
+**[Realtime Search Box]** A Web app  where users search articles, and then to have analytics that display what users were searching for. The app records users input in realtime and ultimately display analytics & trends on what people are searching for the most.
 
 ## 🛠 Built With <a name="built-with"></a>
 
