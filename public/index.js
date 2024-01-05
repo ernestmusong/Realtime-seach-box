@@ -1,9 +1,4 @@
-<main>
-  <input type="text" id="search-box" placeholder="Search articles...">
-<div id="search-results"></div>
-
-<script>
-  document.getElementById("search-box").addEventListener("input", function() {
+document.getElementById("search-box").addEventListener("input", function() {
     const query = this.value;
     if (query.length >= 3) {
       $.ajax({
@@ -18,5 +13,3 @@
       $("#search-results").html("");
     }
   });
-</script>
-</main>
