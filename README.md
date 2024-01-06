@@ -27,7 +27,7 @@
 **[Realtime Search Box]** A Web app  where users search articles, and then to have analytics that display what users were searching for. The app records users input in realtime and ultimately display analytics & trends on what people are searching for the most.
 
 ## Test app how it works with the words
-zoom,enim, Totam, consequatur, soluta, est, nulla, et, hic
+what, who, how, where, when, can, zoom, why, race
 
 ## 🛠 Built With <a name="built-with"></a>
 

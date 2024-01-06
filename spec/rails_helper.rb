@@ -1,12 +1,12 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'capybara/rspec'
-require 'webdrivers'
 
-require 'spec_helper'
-
-ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'faker'
+require 'webdrivers'
+
+require 'spec_helper',
+
+ENV['RAILS_ENV'] ||= 'test'
 
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?

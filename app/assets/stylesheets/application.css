@@ -22,14 +22,51 @@ body {
   width: 100%;
 }
 
-#search-results {
-  height: 50vh;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 100px;
-}
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    width: 65%;
+    background: #fff;
+    border-radius: 25px;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  
+  .search-label {
+    display: flex;
+    width: calc(100% - 50px);
+  }
+  
+  .search-input {
+    border: none;
+    width: 100%;
+    background: transparent;
+    text-align: center;
+  }
+  
+  .search-input::placeholder {
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  .search-input:focus {
+    outline: none;
+  }
+  
+  .search-input:focus:invalid {
+    outline: none;
+  }
+  
+  #search-button {
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 50px;
+    min-width: 50px;
+    background: transparent;
+  }
+  
 #search-results p {
    color: #333;
 }
