@@ -88,6 +88,9 @@ sh
  ### Create database schema:
  Run: rails db:migrate
 
+ ### Create seed:
+ Run: rails db:seed
+
  ### Start:
  Run: rails s
 
