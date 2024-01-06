@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
     query = params[:query].to_s.strip
     @user_ip = request.remote_ip
     Search.create(query: query, ip_address: @user_ip)
-    @articles = Article.where('title LIKE ?', '%<query>%')
+    @articles = Article.where('lower(title) LIKE ?', "%#{query.downcase}%")
     render json: { articles: @articles }
   end
 
