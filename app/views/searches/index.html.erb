@@ -1,0 +1,18 @@
+   <div class="mid-nav">
+    <form class="search-wrapper" >
+      <label class="search-label" htmlFor="year">
+        <input
+          type="search"
+          name="search"
+          id="search"
+          class="search-input"
+          placeholder="Search"
+          oninput="handleSearch(this.value)"
+        >
+      </label>
+      <button type="submit" id="search-button">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+  </div>
+    <div id="search-results" style="height: 50vh; top: 100px"></div>

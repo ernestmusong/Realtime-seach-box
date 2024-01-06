@@ -90,3 +90,4 @@ gem 'erb-formatter'
 
 gem 'font-awesome-rails'
 gem 'sass-rails'
+gem 'jquery-rails'
