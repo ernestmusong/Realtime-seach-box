@@ -55,13 +55,7 @@ what, who, how, where, when, can, zoom, why, race
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](#)
-
-## 🚀 Project Presentation <a name="live-demo"></a>
-
-- [Live Presentation Link](#))
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- [Live Demo Link](https://searchbox-fjgx.onrender.com/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
