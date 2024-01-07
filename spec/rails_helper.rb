@@ -1,12 +1,29 @@
 require 'capybara/rspec'
-
-require_relative '../config/environment'
-require 'faker'
 require 'webdrivers'
 
-require 'spec_helper',
+require 'spec_helper'
 
 ENV['RAILS_ENV'] ||= 'test'
+require_relative '../config/environment'
+
+# register chrome driver
+
+# Capybara.register_driver :selenium_chrome do |app|
+#   options = Selenium::WebDriver::Chrome::Options.new(binary: '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe')
+#   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+# end
+# Capybara.register_driver :selenium_chrome do |app|
+#   chrome_path_wsl = `wsl wslpath -a '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'`.strip
+#   options = Selenium::WebDriver::Chrome::Options.new(binary: chrome_path_wsl)
+#   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+# end
+
+Capybara.register_driver :selenium_chrome do |app|
+  options = Selenium::WebDriver::Chrome::Options.new(binary: 'C:\Program Files\Google\Chrome\Application\chrome.exe')
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :selenium_chrome
 
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?

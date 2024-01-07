@@ -1,21 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe 'Seaches', type: :feature do
-  before(:each) do
-    visit searches
-    fill_in 'how are you'
-  end
-  describe 'Display results' do
-    scenario 'should display No results found' do
-      visit search
-      fill_in 'how are you'
-      expect(page).to have_content('No results found')
-    end
-  end
-  describe 'Results page' do
-    scenario 'should display search form' do
-      visit searches
-      expect(page).to have_content('Search')
-    end
+RSpec.describe 'Instant Search', type: :feature do
+  scenario 'displays search results as the user types', js: true do
+    visit searches_path
+
+    # Find the search input field and type a search query
+    fill_in 'search', with: 'how'
+    sleep 1
+    expect(page).to have_selector('#search_results', visible: true)
   end
 end

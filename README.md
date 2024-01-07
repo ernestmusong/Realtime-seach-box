@@ -26,9 +26,6 @@
 
 **[Realtime Search Box]** A Web app  where users search articles, and then to have analytics that display what users were searching for. The app records users input in realtime and ultimately display analytics & trends on what people are searching for the most.
 
-## Test app how it works with the words
-what, who, how, where, when, can, zoom, why, race
-
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -48,7 +45,7 @@ what, who, how, where, when, can, zoom, why, race
 
 ### Key Features <a name="key-features"></a>
 
-- **[User Search querry]**
+- **[instant search]**
 - **[Display result based on user input]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -82,14 +79,14 @@ sh
  ### Create database schema:
  Run: rails db:migrate
 
- ### Create seed:
- Run: rails db:seed
-
  ### Start:
  Run: rails s
 
  ### Tests:
  Run: rspec
+
+ ## Rubocop autofix
+ Run: rubocop -A
 
  
 

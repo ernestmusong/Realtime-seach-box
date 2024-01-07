@@ -10,28 +10,33 @@ handleSearch = (query) => {
       data: {query: query},
       success: (result) => {
         console.log(result)
-        displayResults(result.articles);
+        displayResults(result.suggestions);
       },
       error: (error) => {
         console.log(error)
       }
     })
   }
-  
-  displayResults = (articles) => {
+
+
+ 
+  displayResults = (results) => {
     const resultsDom = document.querySelector('#search-results')
     resultsDom.innerHTML = '';
-    if(articles.length === 0) {
+    if(results.length === 0) {
         const noResultDiv = document.createElement('p') 
         noResultDiv.textContent = 'No results found' 
         resultsDom.appendChild(noResultDiv)
     } else {
-        articles.forEach((article) => {
+        results.forEach((result) => {
             const articlesList = document.createElement('ul')
-            articlesList.className = 'article';
-            articlesList.innerHTML = `<li>${article.title}</li>`
+            articlesList.className = 'results';
+            articlesList.innerHTML = `<li>${result}</li>`
             resultsDom.appendChild(articlesList)
         })
     }
     
   }
+
+
+   
