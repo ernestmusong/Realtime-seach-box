@@ -52,7 +52,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://searchbox-fjgx.onrender.com/)
+- [Live Demo Link](https://searchbox-le6u.onrender.com/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
