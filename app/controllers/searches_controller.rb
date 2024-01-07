@@ -15,7 +15,7 @@ class SearchesController < ApplicationController
     # Check if the current query is a prefix of any existing search queries
     existing_search = Search.find_by('lower(query) = ? AND ip_address = ?', query, user_ip)
 
-    if query.split.length >= 3 && last_word_length_not_less_than_3?(query)
+    if query.split.length >= 3 && last_word_length_not_less_than_3?(query) && last_word_is_not_the?(query)
       if existing_search
         existing_search.increment!(:count)
       else
@@ -29,7 +29,12 @@ class SearchesController < ApplicationController
   private
 
   def last_word_length_not_less_than_3?(query)
-    last_word = query.split.last
+    last_word = query.split.last.downcase
     last_word.length >= 3
+  end
+
+  def last_word_is_not_the?(query)
+    last_word = query.split.last.downcase
+    last_word != 'the'
   end
 end
